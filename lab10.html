@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab10</title>
+</head>
+<body>
+    <div>
+        <p class="title">Первое задание:</p>
+        <p id="first"></p>
+        <p class="title">Второе задание:</p>
+        <p id="second"></p>
+        <p class="title">Третье задание:</p>
+        <p id="third"></p>
+        <p class="title">Четвертое задание:</p>
+        <p id="fourth"></p>
+        <p class="title">Пятое задание:</p>
+        <a href="https://www.programiz.com/javascript/online-compiler/">проверка кода</a>
+        <p class="title">Шестое задание:</p>
+        <p id="Sixth"></p>
+        <p class="title">Седьмое задание:</p>
+        <p id="seventh"></p>
+        <p class="title">Восьмое задание:</p>
+        <p id="eight"></p>
+        <p class="title">Девятое задание:</p>
+        <p id="nine"></p>
+        <p class="title">Десятое задание:</p>
+        <p id="ten"></p>
+        <p class="title">Одинадцатое задание:</p>
+        <p id="eleven"></p>
+        <p class="title">Двенадцатое задание:</p>
+        <p id="twelve"></p>
+        <p class="title">Тринадцатое задание:</p>
+        <p id="thirteen"></p>
+    </div>
+    <script>
+        function findnum(arr, divisor) {
+            return arr.filter(num => num % divisor === 0);
+        }
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const divisor = 3;
+        const result = findnum(numbers, divisor);
+        document.getElementById('first').innerText = `Числа, которые делятся на ${divisor}: ${result}`;
+    </script>
+    <script>
+        function anagran(str1, str2) {
+            const mystring = function(str) {
+                return str.toLowerCase().replace(/[^а-я]/g, '').split('').sort().join('');
+            }
+            const mystring1 = mystring(str1);
+            const mystring2 = mystring(str2);
+            return mystring1 === mystring2;
+        }
+        const string1 = 'нос';
+        const string2 = 'сон';
+        if (anagran(string1, string2)) {
+           document.getElementById('second').innerText = `${string1} и ${string2} являются анаграммами`;
+        } else {
+            document.getElementById('second').innerText = `${string1} и ${string2} не являются анаграммами`;
+        }
+    </script>
+    <script>
+        function count(str) {
+            str = str.toLowerCase();
+            const vowels = /[aeiou]/g;
+            const vowelsCount = str.match(vowels) ? str.match(vowels).length : 0;
+            return vowelsCount;
+        }
+        const inputString = 'chupapi munyanya';
+        const vowelsCount = count(inputString);
+        document.getElementById('third').innerText = `Количество гласных в строке ${inputString} равно: ${vowelsCount}`;
+    </script>
+    <script>
+        function drawTriangle(n) {
+            let row = '';
+            for (let i = 1; i <= n; i++) {
+                row = '\n';
+                for (let j = 1; j <= i; j++) {
+                    row += '#';
+                }
+                document.getElementById('fourth').innerText += `${row}`;
+            }
+        }
+        drawTriangle(6);
+    </script>
+    <script>
+        function FizzBuzz()
+        {
+            for (let i = 1; i <= 100; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    console.log('FizzBuzz');
+                } else if (i % 3 === 0) {
+                    console.log('Fizz');
+                } else if (i % 5 === 0) {
+                    console.log('Buzz');
+                } else {
+                    console.log(i);
+                }
+            }
+        }
+    </script>
+    <script>
+        let size = 8;
+        let board = '';
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                if ((i + j) % 2 === 0) {
+                    board += '__';
+                } else {
+                    board += '#';
+                }
+            }
+            board += '\n';
+        }
+        document.getElementById('Sixth').innerText = `${board}`;
+    </script>
+    <script>
+        function min(a, b)
+        {
+            if (a < b) {return a;}
+            else {return b;}
+        }
+        document.getElementById('seventh').innerText = `${min(1, 3)}`;
+    </script>
+    <script>
+        function isEven(number) {
+            if (number < 0) {
+                return isEven(-number);
+            }
+            if (number === 0) {
+                return true;
+            } else if (number === 1) {
+                return false;
+            } else {
+                return isEven(number - 2);
+            }
+        }
+        document.getElementById('eight').innerText = `Если 50: ${isEven(50)}\n Если 75: ${isEven(75)}\n Если -1: ${isEven(-1)}`;
+    </script>
+    <script>
+        function countBs(str) {
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str.charAt(i) === 'B') {
+                    count++;
+                }
+            }
+            return count;
+        }
+        function countChar(str, char) {
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str.charAt(i) === char) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        let test = "Bean bean Bee";
+        document.getElementById('nine').innerText = `Если countBs(Bean bean Bee): ${countBs(test)}\n Если countChar(Bean bean Bee, B): ${countChar(test, 'B')}`;
+    </script>
+    <script>
+        function range(start, end, step = 1) {
+            let result = [];
+            if (step > 0) {
+                for (let i = start; i <= end; i += step) {
+                    result.push(i);
+                }
+            } else {
+                for (let i = start; i >= end; i += step) {
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+        function sum(numbers) {
+            let total = 0;
+            for (let number of numbers) {
+                total += number;
+            }
+            return total;
+        }
+        document.getElementById('ten').innerText = `Массив от 1 до 10 с шагом 2:\n${range(1, 10, 2)}\nМассив от 5 до 2 с шагом -1:\n${range(5, 2, -1)}\nСумма массива от 1 до 10:\n${sum(range(1, 10))}`;
+    </script>
+    <script>
+        function reverseArray(arr) {
+            let newar = [];
+            for (let i = arr.length - 1; i >= 0; i--) {
+                newar.push(arr[i]);
+            }
+            return newar;
+        }
+        function reverseArrayInPlace(arr) {
+            for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+                let temp = arr[i];
+                arr[i] = arr[arr.length - 1 - i];
+                arr[arr.length - 1 - i] = temp;
+            }
+            return arr;
+        }
+        let arr = [1, 2, 3, 4, 5];
+        document.getElementById('eleven').innerText = `reverseArray массив от 1 до 5: ${reverseArray(arr)}\reverseArrayInPlace массив от 1 до 5: ${reverseArrayInPlace(arr)}`;
+    </script>
+    <script>
+        function deepEqual(a, b) {
+            if (a === b) {
+                return true;
+            }
+            if (a == null || typeof a !== 'object' || b == null || typeof b !== 'object') {
+                return false;
+            }
+            let keysA = Object.keys(a);
+            let keysB = Object.keys(b);
+            if (keysA.length !== keysB.length) {
+                return false;
+            }
+            for (let key of keysA) {
+                if (!keysB.includes(key) || !deepEqual(a[key], b[key])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        let arr1 = [1, 2, 3];
+        let arr2 = [1, 2, 3];
+        let arr3 = [1, 2, 4];
+        document.getElementById('twelve').innerText = `${deepEqual(arr1, arr2)} ${deepEqual(arr1, arr3)}\n`;
+        let value1 = 42;
+        let value2 = 42;
+        let nul = null;
+        document.getElementById('twelve').innerText += `${deepEqual(value1, value2)} ${deepEqual(nul, null)}`;
+    </script>
+    <script>
+        let arrr = [[1, 2], [3, 4], [5, 6]];
+        let newar = arrr.reduce((acc, curar) => acc.concat(curar), []);
+        document.getElementById('thirteen').innerText = `${newar}`;
+    </script>
+</body>
+</html>
